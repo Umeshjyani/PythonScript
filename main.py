@@ -3,9 +3,9 @@ import string
 import pikepdf
 import time
 
-known_part = "VIKA"
+known_part = "UMES35"
 possible_chars = string.ascii_uppercase + string.digits
-pdf_file_path = "not2.pdf"
+pdf_file_path = "umeshpay.pdf"
 output_file_path = "output.txt"
 
 def log_to_file(message):
@@ -27,19 +27,19 @@ def check_password_on_pdf(pdf_path, password):
         log_to_file(error_message)
         return False
 
-for combination in itertools.product(possible_chars, repeat=4):
+for combination in itertools.product(possible_chars, repeat=2):
     password = known_part + ''.join(combination)
     if check_password_on_pdf(pdf_file_path, password):
         time_taken = time.time() - start_time
         success_message = f"Password found: {password}. Time taken: {time_taken:.2f} seconds."
         log_to_file(success_message)
-        print(success_message)
+        # print(success_message)
         break
 else:
     log_to_file("Password not found.")
-    print("Password not found.")
+    # print("Password not found.")
 
 time_taken = time.time() - start_time
 final_message = f"Script completed. Total time taken: {time_taken:.2f} seconds."
 log_to_file(final_message)
-print(final_message)
+# print(final_message)
