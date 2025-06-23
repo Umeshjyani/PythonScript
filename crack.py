@@ -3,7 +3,8 @@ import string
 import pikepdf
 import time
 
-known_part = "XYZE"
+known_part = "XYZE" 
+# this is the part of that you know
 possible_digits = string.digits
 possible_last_char = string.ascii_uppercase
 pdf_file_path = "k.pdf"
